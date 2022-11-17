@@ -1,4 +1,4 @@
-class Producto{
+ class Producto{
     constructor(id, id2, nombre, precio, stock){
         this.id = id;
         this.id2 = id2;
@@ -16,20 +16,33 @@ class Producto{
     }
 }
 
-const producto1 = new Producto(1, 88, "Melaza de Caña",1200, 300)
-const producto2 = new Producto(2, 77, "Harina de Roca", 1800, 100)
-const producto3 = new Producto(3, 66, "Cascarilla de Arroz", 900, 200)
-const producto4 = new Producto(4, 55, "Carbonilla Vegetal", 1100, 100)
-const producto5 = new Producto(5, 44, "Biocarbon Activado", 950, 120)
-const producto6 = new Producto(6, 33, "Agua de Mar", 1700, 200)
-const producto7 = new Producto(7, 22,"Cera Natural", 1000, 150)
+const producto1 = new Producto(1, 88, "Melaza de caña",1200, 300)
+const producto2 = new Producto(2, 77, "Harina de coca", 1800, 100)
+const producto3 = new Producto(3, 66, "Cascarilla de arroz", 900, 200)
+const producto4 = new Producto(4, 55, "Carbonilla vegetal", 1100, 100)
+const producto5 = new Producto(5, 44, "Biocarbon activado", 950, 120)
+const producto6 = new Producto(6, 33, "Agua de mar", 1700, 200)
+const producto7 = new Producto(7, 22,"Cera natural", 1000, 150)
 const producto8 = new Producto(8, 11,"Ormus", 1400, 110)
 
 const productos = [producto1, producto2, producto3, producto4, producto5, producto6, producto7, producto8]
 
 const carrito = []
 
+productos.find(object => {
+    if(object.precio >= 1000){
+        alert (`Productos de $1000 o mas en promoción 2x1: \n ${object.nombre} a $ ${object.precio}` )
+    }
+})
+
+let prodFiltrado = productos.filter(object => object.precio < 1000 );
+
+prodFiltrado.forEach((productos) => {
+    alert (`Productos en OFERTA por menos de $ 1000 : \n ${productos.nombre} a solo $ ${productos.precio}`) 
+}) 
+
 let productosEnStock = "Seleccione los productos que desea comprar: "
+
 
 function agregarQuitarCarrito(){ 
     for (item of productos) {
@@ -143,9 +156,6 @@ let productosEnCarrito = `Agregaste al carrito: `
 let totalCarrito = 0
 
 
-agregarQuitarCarrito()
-
-
 
 
 function mostrarCarrito(){
@@ -155,4 +165,8 @@ function mostrarCarrito(){
     }
     alert(`\n ${productosEnCarrito} \n Total: $ ${totalCarrito}`)
 
-}
+} 
+ 
+
+agregarQuitarCarrito()  
+
